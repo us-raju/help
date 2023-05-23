@@ -1,0 +1,577 @@
+h1,
+h2,
+h3,
+h4 {
+  font-family: $primaryFont;
+  font-weight: 700;
+}
+h5,
+h6 {
+  font-family: $primaryFont;
+  font-weight: 600;
+}
+p {
+  font-family: $secoundryFont;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+p,
+span,
+small {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  list-style-type: none;
+}
+ins,
+a,
+a:hover {
+  text-decoration: none;
+}
+input:focus,
+textarea:focus {
+  outline: 0;
+}
+body {
+  font-family: $primaryFont;
+  overflow-x: hidden;
+}
+// common heading start
+.heading {
+  h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 46px;
+    color: $TextColor;
+    text-align: center;
+  }
+}
+// common heading end
+
+// common dots style start
+.dots_style {
+  display: flex;
+  position: absolute;
+  bottom: 34%;
+  left: 7%;
+  li {
+    button {
+      font-size: 0;
+      width: 10px;
+      height: 6px;
+      background-color: $lightColor;
+      border: none;
+      margin: 0 5px;
+      border-radius: 5px;
+      transition: 0.5s;
+    }
+    &.slick-active {
+      button {
+        width: 26px;
+        background-color: $PrimaryColor3;
+      }
+    }
+  }
+}
+// common dots style end
+
+// common product style start
+%product_style {
+  position: relative;
+  border: 1px solid $bgColor;
+  overflow: hidden;
+  .slider_item_img img:last-child {
+    opacity: 0;
+    transition: 0.5s;
+  }
+  &:hover .slider_item_img img:last-child {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  .product_info ins {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: $ParagraphColor;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  .product_info del {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #bdbdbd;
+  }
+  .product_info h3 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: $TextColor;
+    transition: 0.5s;
+    &:hover {
+      color: $praimaryColor;
+    }
+  }
+  .faStar {
+    font-size: 10px;
+    color: $praimaryColor;
+  }
+  .product_badge_overlay {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    background: $praimaryColor;
+    transform: rotate(-90deg);
+    padding: 8px;
+    width: 70px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    opacity: 999;
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 26px;
+      color: $lightColor;
+    }
+  }
+  .product_icon_overlay {
+    position: absolute;
+    top: 39px;
+    right: -50px;
+    transition: 0.5s;
+    ul li {
+      margin: 5px 0;
+      a {
+        // position: absolute;
+        display: inline-block;
+        font-size: 16px;
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        color: $PrimaryColor3;
+        background-color: $lightColor;
+        border-radius: 50%;
+        transition: 0.5s;
+        box-shadow: $shadow1;
+        &:hover {
+          color: $lightColor;
+          background: $praimaryColor;
+          box-shadow: none;
+        }
+        .custom-tooltip {
+          background: red;
+        }
+      }
+    }
+  }
+  &:hover .product_icon_overlay {
+    right: 17px;
+  }
+}
+
+// common product style end
+
+// common button style start
+.anchor {
+  text-align: center;
+  a {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    color: $lightColor;
+    background: $praimaryColor;
+    padding: 13px 27px;
+    transition: 0.5s;
+    &:hover {
+      background: $blackColor;
+    }
+  }
+}
+// common button style end
+
+// common play button start
+.play-icon {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: $lightColor;
+  color: $praimaryColor;
+  font-size: 20px;
+  transition: 0.5s;
+  &:hover {
+    background-color: $praimaryColor;
+    color: $lightColor;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #fff4;
+    transform: scale(0);
+    animation: animate-btn 2s infinite linear;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #fff4;
+    transform: scale(0);
+    animation: animate-btn2 2s infinite linear;
+  }
+}
+@keyframes animate-btn {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.5);
+  }
+}
+@keyframes animate-btn2 {
+  0% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(2);
+  }
+}
+// common play button end
+
+// common banner hover effect start
+#offer {
+  position: relative;
+  overflow: hidden;
+  ::before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    opacity: 1;
+    z-index: 3;
+    top: 0;
+    right: 51%;
+    bottom: 0;
+    left: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: skew(45deg);
+  }
+  &:hover ::before {
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: all 900ms linear;
+  }
+}
+// common hover banner effect end
+
+// common product hover effcet start
+.mega-hover {
+  position: relative;
+  overflow: hidden;
+  ::after,
+  ::before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    opacity: 1;
+    z-index: 3;
+  }
+  ::before {
+    top: 0;
+    right: 51%;
+    bottom: 0;
+    left: 50%;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  ::after {
+    top: 50%;
+    right: 0;
+    bottom: 50%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  &:hover ::before {
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: all 900ms linear;
+  }
+  &:hover ::after {
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: all 900ms linear;
+  }
+}
+
+// common product hover effcet end
+
+// common help section start
+#help {
+  .help_inner_container {
+    padding: 45px 38px;
+    background-color: $lightColor;
+    box-shadow: $shadow2;
+    transform: translateY(80px);
+    z-index: 99;
+    .help-item {
+      border-right: 5px solid $bgColor;
+      height: 100%;
+      &:last-child{
+        border-right: none;
+      }
+      .help-img {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: $praimaryColor;
+        color: $lightColor;
+        margin-right: 5px;
+      }
+      .help-text {
+        h4 {
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 30px;
+          color: $TextColor;
+        }
+        p {
+          line-height: 28px;
+          color: $ParagraphColor;
+          strong {
+            color: $praimaryColor;
+          }
+        }
+      }
+    }
+  }
+}
+// common help section end
+
+// common footer section start
+footer {
+  z-index: -1;
+  background-color: $TextColor;
+  .top {
+    padding: 150px 0 75px 0;
+    border-bottom: 1px solid $lightColor;
+    .social-icon {
+      ul li {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        margin: 0 5px;
+        background-color: $lightColor;
+        transition: 0.5s;
+        a {
+          color: $ParagraphColor;
+          display: inline-block;
+          transition: 0.5s;
+          &:hover {
+            color: $lightColor;
+          }
+        }
+        &:hover {
+          background-color: $praimaryColor;
+        }
+      }
+    }
+  }
+  .mid {
+    padding: 70px 0 75px 0;
+    h4 {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 34px;
+      color: $lightColor;
+      padding-bottom: 22px;
+      text-align: start;
+    }
+
+    .account,
+    .Support {
+      // margin: 0 10px;
+      a {
+        font-family: $secoundryFont;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 28px;
+        color: $lightColor;
+        transition: 0.5s;
+        span {
+          padding-right: 7px;
+        }
+        &:hover {
+          color: $praimaryColor;
+          // padding-left: 10px;
+        }
+      }
+    }
+    .OpeningTime {
+      .date {
+        font-family: $secoundryFont;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 28px;
+        color: $lightColor;
+      }
+      .time {
+        line-height: 28px;
+        color: $lightColor;
+      }
+    }
+    .ContactUs {
+      span {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 14px;
+        text-align: center;
+        color: $praimaryColor;
+      }
+      p,
+      a {
+        display: inline-block;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 28px;
+        color: $lightColor;
+      }
+    }
+    .NewsLetter {
+      p {
+        line-height: 28px;
+        color: $lightColor;
+        padding-bottom: 23px;
+      }
+      .input-field {
+        padding: 0px 0px;
+      }
+    }
+  }
+  .bottom {
+    background: #32363e;
+    padding: 28px 0;
+    p {
+      line-height: 28px;
+      text-align: center;
+      color: $lightColor;
+      strong {
+        color: $praimaryColor;
+      }
+    }
+  }
+}
+// common footer section end
+
+// common header start
+header {
+  background: $PrimaryColor3;
+  padding: 18px 0;
+  .first {
+    span {
+      display: inline-block;
+      color: $praimaryColor;
+    }
+    p {
+      display: inline-block;
+      line-height: 28px;
+      color: $lightColor;
+      ins {
+        color: $praimaryColor;
+      }
+    }
+  }
+  .last {
+    color: $lightColor;
+    p {
+      border-right: 1px solid #8c8c8c;
+      padding: 0 20px;
+      cursor: pointer;
+      transition: 0.5s;
+      &:hover {
+        color: $praimaryColor;
+      }
+    }
+    .s-icon {
+      // padding-left: 20px;
+      ul li {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        padding: 0px 10px;
+        text-align: center;
+        a {
+          color: $lightColor;
+        }
+      }
+    }
+  }
+}
+// common header end
+
+// page heading start
+.page-heading {
+  h1 {
+    padding-top: 148px;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: center;
+    color: $lightColor;
+  }
+  a {
+    display: inline-block;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    font-family: $secoundryFont;
+    color: $lightColor;
+    transition: 0.5s;
+    &:hover {
+      color: $praimaryColor;
+    }
+  }
+  p {
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    font-family: $secoundryFont;
+    color: $lightColor;
+  }
+}
+// page heading end
